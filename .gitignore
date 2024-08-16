@@ -1,0 +1,7 @@
+Library/
+Logs/
+obj/
+Assets/.use/
+Assets/.texturepacks/
+Assets/.download/
+*.pfb
