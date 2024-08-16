@@ -5,3 +5,8 @@ Assets/.use/
 Assets/.texturepacks/
 Assets/.download/
 *.pfb
+*.otf
+*.ttf
+*.pfb.meta
+*.otf.meta
+*.ttf.meta
