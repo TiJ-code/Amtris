@@ -5,6 +5,7 @@ obj/
 Assets/.use/
 Assets/.texturepacks/
 Assets/.download/
+.vs/
 *.pfb
 *.otf
 *.ttf
