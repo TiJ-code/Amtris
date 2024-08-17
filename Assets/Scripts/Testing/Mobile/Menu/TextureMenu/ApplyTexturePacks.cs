@@ -63,6 +63,7 @@ public class ApplyTexturePacks : MonoBehaviour
             Texture2D newTexture = LoadTextureFromFile(file);
 
             textures.ReplaceTexture(textureName, newTexture);
+
         }
         element.AnimateProgressbar();
 

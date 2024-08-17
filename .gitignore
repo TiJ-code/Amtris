@@ -2,6 +2,7 @@ UserSettings/
 Library/
 Logs/
 obj/
+Temp/
 Assets/.use/
 Assets/.texturepacks/
 Assets/.download/

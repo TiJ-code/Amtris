@@ -26,20 +26,23 @@ public class Textures : MonoBehaviour
         {
             instance = this;
             textures = textureDictionary.ToDictionary();
+            defaultTextures = textureDictionary.ToDictionary();
             DontDestroyOnLoad(this);
         }
     }
 
     public void ReplaceTexture(string name, Texture2D texture)
     {
-        if (textures.ContainsKey(name))
+        if (textureDictionary.ContainsKey(name))
         {
-            textures[name] = texture;
+            textureDictionary.ReplaceTexture(name, texture);
         }
         else
         {
             Debug.LogError($"Texture with name '{name}' does not exist.");
         }
+        
+       textures = textureDictionary.ToDictionary();
     }
 
     public Texture2D GetTexture(string name)
@@ -58,7 +61,7 @@ public class Textures : MonoBehaviour
 public class TextureDictionary
 {
     [SerializeField]
-    TextureDictionaryItem[] items;
+    public TextureDictionaryItem[] items;
 
     public Dictionary<string, Texture2D> ToDictionary()
     {
@@ -82,6 +85,18 @@ public class TextureDictionary
                 break;
             }
         }
+    }
+
+    public bool ContainsKey(string name)
+    {
+        foreach (var item in items)
+        {
+            if (item.name == name)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

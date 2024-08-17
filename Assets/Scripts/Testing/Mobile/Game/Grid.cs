@@ -15,7 +15,7 @@ public class Grid : MonoBehaviour
         grid = new Transform[width, height];
     }
 
-    public bool WIsGameOver(Transform amtromino)
+    public bool WouldBeGameOver(Transform amtromino)
     {
         Transform amtrominoTransform = amtromino.transform;
         amtrominoTransform.position = new Vector3(4f, 19f, 0f);

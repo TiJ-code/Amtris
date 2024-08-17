@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
         int index = Random.Range(0, Amtrominos.Length);
         GameObject amtromino = Amtrominos[index];
-        if (GetComponent<Grid>().WIsGameOver(amtromino.transform))
+        if (GetComponent<Grid>().WouldBeGameOver(amtromino.transform))
         {
             GameOver();
             return;
