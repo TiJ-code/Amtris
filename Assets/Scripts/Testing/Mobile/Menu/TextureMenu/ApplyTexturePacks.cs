@@ -68,12 +68,10 @@ public class ApplyTexturePacks : MonoBehaviour
         string saved_path = PlayerPrefs.GetString("resourcepack", "default");
         if (saved_path != null)
         {
-            print(saved_path);
             if (saved_path != "default")
             {
                 string[] parts = Path.GetFullPath(saved_path).Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
                 string pack_name = parts[parts.Length - 2];
-                print(pack_name);
                 foreach (var textureElement in elements)
                 {
                     if (textureElement.pack_name == pack_name)
