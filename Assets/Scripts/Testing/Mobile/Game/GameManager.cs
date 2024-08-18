@@ -199,7 +199,6 @@ public class GameManager : MonoBehaviour
 
     private void UserInput()
     {
-        // touch input
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             MoveAmtromino(Vector3.left);

@@ -8,11 +8,14 @@ public class Grid : MonoBehaviour
     public Transform[,] grid;
     public int width, height;
 
+    public Scoreboard scoreboard;
+
     private IEnumerator Start()
     {
         yield return new WaitForSecondsRealtime(3f);
 
         grid = new Transform[width, height];
+        scoreboard = GetComponent<Scoreboard>();
     }
 
     public bool WouldBeGameOver(Transform amtromino)
@@ -125,6 +128,7 @@ public class Grid : MonoBehaviour
             {
                 DeleteLine(y);
                 DecreaseRowsAbove(y + 1);
+                scoreboard.AddLineCleared();
                 y--;
             }
         }

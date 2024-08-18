@@ -980,6 +980,7 @@ GameObject:
   - component: {fileID: 832624697}
   - component: {fileID: 832624699}
   - component: {fileID: 832624700}
+  - component: {fileID: 832624701}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1068,6 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 10
   height: 20
+  scoreboard: {fileID: 0}
 --- !u!114 &832624700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,6 +1092,20 @@ MonoBehaviour:
   - {fileID: 664081706}
   - {fileID: 1146352434}
   movementFrequency: 0.8
+--- !u!114 &832624701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832624696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edbbe84778abab4083e2e52eaa2955e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1258542737}
+  highscoreText: {fileID: 1580253060}
 --- !u!1 &903299669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,8 +1684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120, y: -25}
-  m_SizeDelta: {x: -290, y: 85}
+  m_AnchoredPosition: {x: -37.50003, y: -25}
+  m_SizeDelta: {x: -124.99994, y: 85}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1264910447
 MonoBehaviour:
@@ -1691,7 +1707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lines:'
+  m_text: 'Highscore:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85f639abb6c2a746981f3b033c2d623, type: 2}
   m_sharedMaterial: {fileID: 575682243576182636, guid: a85f639abb6c2a746981f3b033c2d623, type: 2}
@@ -1886,7 +1902,7 @@ GameObject:
   - component: {fileID: 1311567685}
   - component: {fileID: 1311567684}
   m_Layer: 5
-  m_Name: LinesPanel
+  m_Name: HighscorePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,7 +2106,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14
+  orthographic size: 12.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2115,7 +2131,7 @@ Transform:
   m_GameObject: {fileID: 1377407873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 12.5, z: -10}
+  m_LocalPosition: {x: 4.5, y: 11.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
