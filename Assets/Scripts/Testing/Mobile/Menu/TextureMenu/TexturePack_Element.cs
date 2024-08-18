@@ -3,8 +3,6 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System.Collections;
 
 public class TexturePack_Element : MonoBehaviour
 {

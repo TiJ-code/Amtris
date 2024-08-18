@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -24,6 +22,8 @@ public class DisplayTexturePacks : MonoBehaviour
 
     public void Display()
     {
+        ApplyTexturePacks.instance.LoadResourcePack();
+
         string[] directories = Directory.GetDirectories(Infrastructure.usagePath);
 
         foreach (string directory in directories)
@@ -36,6 +36,7 @@ public class DisplayTexturePacks : MonoBehaviour
 
             ApplyTexturePacks.instance.elements.Add(texElement);
         }
+        ApplyTexturePacks.instance.FixLoadedUi();
 
         ApplyTexturePacks.instance.ApplyOnClickListener();
     }

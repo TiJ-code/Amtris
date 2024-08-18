@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
@@ -47,6 +47,58 @@ public class ApplyTexturePacks : MonoBehaviour
         }
     }
 
+    public void LoadResourcePack()
+    {
+        string saved_path = PlayerPrefs.GetString("resourcepack", "default");
+        if (saved_path != null)
+        {
+            if (saved_path == "default")
+            {
+                ApplyDefaultTexturePack();
+            } 
+            else
+            {
+                InitialiseLoadedResourcePack(saved_path);
+            }
+        }
+    }
+
+    public void FixLoadedUi()
+    {
+        string saved_path = PlayerPrefs.GetString("resourcepack", "default");
+        if (saved_path != null)
+        {
+            print(saved_path);
+            if (saved_path != "default")
+            {
+                string[] parts = Path.GetFullPath(saved_path).Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+                string pack_name = parts[parts.Length - 2];
+                print(pack_name);
+                foreach (var textureElement in elements)
+                {
+                    if (textureElement.pack_name == pack_name)
+                    {
+                        textureElement.indicator.text = letterStates[1];
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    private void InitialiseLoadedResourcePack(string path)
+    {
+        string[] textureFiles = Directory.GetFiles(path, "*.png");
+
+        foreach (string file in textureFiles)
+        {
+            string textureName = Path.GetFileNameWithoutExtension(file);
+            Texture2D newTexture = LoadTextureFromFile(file);
+
+            textures.ReplaceTexture(textureName, newTexture);
+        }
+    }
+
     public void ApplyTexturePack(TexturePack_Element element)
     {
         UnapplyAllPacks();
@@ -55,17 +107,11 @@ public class ApplyTexturePacks : MonoBehaviour
         element.applied = true;
 
         string pack_path = Path.Combine(element.pack_path, "textures/");
-        string[] textureFiles = Directory.GetFiles(pack_path, "*.png");
-
-        foreach (string file in textureFiles)
-        {
-            string textureName = Path.GetFileNameWithoutExtension(file);
-            Texture2D newTexture = LoadTextureFromFile(file);
-
-            textures.ReplaceTexture(textureName, newTexture);
-
-        }
+        InitialiseLoadedResourcePack(pack_path);
         element.AnimateProgressbar();
+
+        PlayerPrefs.SetString("resourcepack", pack_path);
+        PlayerPrefs.Save();
 
         element.indicator.text = letterStates[1];
     }
@@ -81,12 +127,16 @@ public class ApplyTexturePacks : MonoBehaviour
                 if (defaultTexKey == texKey)
                 {
                     textures.textures[texKey] = textures.defaultTextures[texKey];
+                    break;
                 }
             }
         }
 
         float defaultMaxWidth = defaultTexturePackObject.GetComponent<RectTransform>().rect.width;
         ProgressbarAnimator.instance.AnimateProgressbar(defaultTexturePackProgressbarRect, defaultMaxWidth);
+
+        PlayerPrefs.SetString("resourcepack", "default");
+        PlayerPrefs.Save();
 
         defaultTexturePackIndicator.text = letterStates[1];
     }

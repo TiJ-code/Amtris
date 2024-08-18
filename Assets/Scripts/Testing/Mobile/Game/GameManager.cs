@@ -20,11 +20,21 @@ public class GameManager : MonoBehaviour
     private float moveTime;
     private float lockTime;
 
-
     private GameObject currentAmtromino;
 
     private bool isGameOver = false;
     private bool running = false;
+
+    private Vector2 startTouchPosition;
+    private Vector2 currentPosition;
+    private Vector2 endTouchPosition;
+    private bool moving = false;
+    private bool movingDown = false;
+    private float touchDelay = 0.2f;
+    private float touchTime;
+    private static float leftRightSensitivity = 65f;
+    private static float hardDropSensitivity = 150f;
+    private float tapRange = 65f;
 
     private IEnumerator Start()
     {
@@ -47,24 +57,8 @@ public class GameManager : MonoBehaviour
 
             lockTime += Time.deltaTime;
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                currentAmtromino.transform.Rotate(0f, 0f, 90f);
-                if (!IsValidPosition())
-                {
-                    currentAmtromino.transform.Rotate(0f, 0f, -90f);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                HardDrop();
-            }
-
-            if (Time.time > moveTime)
-            {
-                UserInput();
-            }
+            MobileControls();
+            KeyboardControls();
 
             if (Time.time > stepTime)
             {
@@ -72,6 +66,112 @@ public class GameManager : MonoBehaviour
             }
 
             stepDelay -= stepDecreaseRate * Time.deltaTime;
+        }
+    }
+
+    private void KeyboardControls()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            currentAmtromino.transform.Rotate(0f, 0f, 90f);
+            if (!IsValidPosition())
+            {
+                currentAmtromino.transform.Rotate(0f, 0f, -90f);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            HardDrop();
+        }
+
+        if (Time.time > moveTime)
+        {
+            UserInput();
+        }
+    }
+
+    private void MobileControls()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                startTouchPosition = Input.GetTouch(0).position;
+            }
+
+            if (Input.GetTouch(0).phase == TouchPhase.Moved || moving)
+            {
+                currentPosition = Input.GetTouch(0).position;
+                Vector2 distance = currentPosition - startTouchPosition;
+
+                // Swipe left
+                if (distance.x < -leftRightSensitivity && Mathf.Abs(distance.y) < Mathf.Abs(distance.x))
+                {
+                    float tempDistance = distance.x;
+                    while (tempDistance < -leftRightSensitivity)
+                    {
+                        MoveAmtromino(Vector2.left);
+                        startTouchPosition.x -= leftRightSensitivity;
+                        moving = true;
+                        tempDistance = currentPosition.x - startTouchPosition.x;
+                    }
+                }
+                // Swipe right
+                else if (distance.x > leftRightSensitivity && Mathf.Abs(distance.y) < Mathf.Abs(distance.x))
+                {
+                    float tempDistance = distance.x;
+                    while (tempDistance > leftRightSensitivity)
+                    {
+                        MoveAmtromino(Vector2.right);
+                        startTouchPosition.x += leftRightSensitivity;
+                        moving = true;
+                        tempDistance = currentPosition.x - startTouchPosition.x;
+                    }
+                }
+
+                // Swipe down
+                if (movingDown || (distance.y < -hardDropSensitivity && Mathf.Abs(distance.y) > Mathf.Abs(distance.x)))
+                {
+                    if (Time.time > moveTime) 
+                    {
+                        MoveAmtromino(Vector2.down);
+                        if (!movingDown)
+                        {
+                            touchTime = Time.time + touchDelay;
+                        }
+                        else if (distance.y < -hardDropSensitivity && Time.time >= touchTime)
+                        {
+                            startTouchPosition.y = currentPosition.y;
+                        }
+                        moving = true;
+                        movingDown = true;
+                    }
+                }
+                // Swipe down
+                /*else if (!moving && distance.y > hardDropSensitivity && 120 > Mathf.Abs(distance.x))
+                {}*/
+            }
+
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                endTouchPosition = Input.GetTouch(0).position;
+                Vector2 distance = endTouchPosition - startTouchPosition;
+                if (Mathf.Abs(distance.x) < tapRange && Mathf.Abs(distance.y) < tapRange && endTouchPosition.y < Screen.height * 0.86 && !moving)
+                {
+                    currentAmtromino.transform.Rotate(0f, 0f, 90f);
+                    if (!IsValidPosition())
+                    {
+                        currentAmtromino.transform.Rotate(0f, 0f, -90f);
+                    }
+                }
+                else if (distance.y < -hardDropSensitivity && Mathf.Abs(distance.y) > Mathf.Abs(distance.x) && Time.time < touchTime)
+                {
+                    HardDrop();
+                }
+                moving = false;
+                movingDown = false;
+            }
         }
     }
 

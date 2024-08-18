@@ -1,6 +1,5 @@
 using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -9,7 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class GithubCollector : MonoBehaviour
 {
