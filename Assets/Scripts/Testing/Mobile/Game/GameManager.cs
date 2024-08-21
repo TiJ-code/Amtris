@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -274,6 +275,14 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameOver = true;
-        Debug.Log("Game Over!");
+        MenuHandler[] menuHandlers = FindObjectsOfType<MenuHandler>();
+        foreach (MenuHandler menuHandler in menuHandlers)
+        {
+            if (menuHandler.type == MenuHandler.MenuType.GameOver)
+            {
+                menuHandler.OpenMenu();
+                break;
+            }
+        }
     }
 }

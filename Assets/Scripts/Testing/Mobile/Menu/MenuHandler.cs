@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-    public enum MenuType { Play, Textures, Credits };
+    public enum MenuType { Play, Textures, Credits, GameOver, Pause };
 
     public MenuType type;
 

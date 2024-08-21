@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Testing\Mobile\Game\StartAreaAnimator.cs" />
     <Compile Include="Assets\Scripts\Testing\Mobile\Menu\TextureMenu\ProgressbarAnimator.cs" />
     <Compile Include="Assets\Scripts\Game\Piece.cs" />
+    <Compile Include="Assets\Scripts\Testing\Mobile\Menu\GameOverMenu\GameOverMenu.cs" />
     <Compile Include="Assets\Scripts\Testing\Mobile\Textures.cs" />
     <Compile Include="Assets\Scripts\Testing\Mobile\AmtrominoTexture.cs" />
     <Compile Include="Assets\Scripts\Testing\Mobile\Infrastructure.cs" />
