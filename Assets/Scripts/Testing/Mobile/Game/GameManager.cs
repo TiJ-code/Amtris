@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -281,6 +278,7 @@ public class GameManager : MonoBehaviour
             if (menuHandler.type == MenuHandler.MenuType.GameOver)
             {
                 menuHandler.OpenMenu();
+                GameOverMenu.instance.scoreValue.text = FindObjectOfType<Scoreboard>().score.ToString();
                 break;
             }
         }

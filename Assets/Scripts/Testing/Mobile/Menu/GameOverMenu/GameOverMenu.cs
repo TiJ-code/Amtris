@@ -1,12 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
+    public static GameOverMenu instance;
+
+    private void Start()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     [SerializeField]
     private CanvasGroup alphaPanel;
+    [SerializeField]
+    public TMP_Text scoreValue;
 
     public void PlayAgain()
     {
