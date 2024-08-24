@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private GameObject currentAmtromino;
 
     private bool isGameOver = false;
+    public bool isPaused = false;
     private bool running = false;
 
     private Vector2 startTouchPosition;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (running)
+        if (running && !isPaused)
         {
             if (isGameOver) return;
 
@@ -193,7 +194,6 @@ public class GameManager : MonoBehaviour
         }
         Lock();
     }
-
 
     private void UserInput()
     {
