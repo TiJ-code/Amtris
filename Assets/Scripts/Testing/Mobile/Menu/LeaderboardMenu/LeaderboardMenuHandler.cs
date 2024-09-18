@@ -7,17 +7,18 @@ public class LeaderboardMenuHandler : MonoBehaviour
 
     public void OpenLeaderboard()
     {
-        print("open");
-        alphaChannel.blocksRaycasts = true;
-        alphaChannel.interactable = true;
-        alphaChannel.LeanAlpha(1f, 1.5f)
-            .setEaseInOutQuad()
-            .setOnComplete(() => SceneManager.LoadScene(2));
+        if (Infrastructure.IsConnected())
+        {
+            alphaChannel.blocksRaycasts = true;
+            alphaChannel.interactable = true;
+            alphaChannel.LeanAlpha(1f, 1.5f)
+                .setEaseInOutQuad()
+                .setOnComplete(() => SceneManager.LoadScene(2));
+        }
     }
 
     public void CloseLeaderboard()
     {
-        print("close");
         alphaChannel.blocksRaycasts = true;
         alphaChannel.interactable = true;
         alphaChannel.LeanAlpha(1f, 1.5f)
