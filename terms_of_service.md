@@ -1,6 +1,6 @@
 # Terms of Service for Amtris
 
-Effective Date: 14.09.2024 [D/M/Y]
+Effective Date: 18.09.2024 [D/M/Y]
 
 Welcome to Amtris! These Terms of Service ("Terms") govern your access to and use of Amtris ("the Game") provided by *Amtris*, including any features, content, and services related to the Game. By downloading, playing, or accessing Amtris, you agree to be bound by these Terms. If you do not agree to these Terms, please discontinue using the Game.
 
@@ -37,7 +37,7 @@ All content, features, and functionality in Amtris, including but not limited to
 
 ## 5. Privacy
 
-By using Amtris, you agree to the collection and use of your information as outlined in our [Privacy Policy](#).
+By using Amtris, you agree to the collection and use of your information as outlined in our [Privacy Policy](https://github.com/TiJ-code/Amtris/blob/main/privacy_policy.md).
 
 ## 6. Disclaimers and Limitation of Liability
 
@@ -62,3 +62,5 @@ These Terms are governed by and construed in accordance with the laws of Germany
 ---
 
 Thank you for playing Amtris!
+
+`Original: 14.09.2024 \ Updated: 18.09.2024`
