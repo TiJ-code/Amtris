@@ -2,11 +2,11 @@ UserSettings/
 Library/
 Logs/
 obj/
+Temp/
 Assets/.use/
 Assets/.texturepacks/
 Assets/.download/
-*.pfb
-*.otf
+.vs/
 *.ttf
 *.pfb.meta
 *.otf.meta
