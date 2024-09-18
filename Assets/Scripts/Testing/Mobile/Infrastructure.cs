@@ -1,7 +1,4 @@
-using System;
 using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class Infrastructure : MonoBehaviour
@@ -9,6 +6,8 @@ public class Infrastructure : MonoBehaviour
     public static string applicationPath;
     public static string downloadPath;
     public static string usagePath;
+
+    public static bool IsStartUpComplete = false;
 
     public static ErrorNode errorNode = ErrorNode.NONE;
 
@@ -32,27 +31,11 @@ public class Infrastructure : MonoBehaviour
         {
             Directory.CreateDirectory(usagePath);
         }
-
-        if (!await IsConnected() || GetAvailableDiskSpace(applicationPath) < 5e7) // 50 Megabytes
-        {
-            Application.Quit();
-        }
     }
 
-    public static async Task<bool> IsConnected()
+    public static bool IsConnected()
     {
-        try
-        {
-            using (var client = new HttpClient { Timeout = TimeSpan.FromSeconds(10) })
-            {
-                var response = await client.GetAsync("https://github.com");
-                return response.IsSuccessStatusCode;
-            }
-        }
-        catch
-        {
-            return false;
-        }
+        return Application.internetReachability != NetworkReachability.NotReachable;
     }
 
     public static long GetAvailableDiskSpace(string path)

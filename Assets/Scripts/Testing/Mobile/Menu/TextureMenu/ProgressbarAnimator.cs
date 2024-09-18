@@ -13,6 +13,7 @@ public class ProgressbarAnimator : MonoBehaviour
         else
         {
             instance = this;
+            Infrastructure.IsStartUpComplete = true;
         }
     }
 

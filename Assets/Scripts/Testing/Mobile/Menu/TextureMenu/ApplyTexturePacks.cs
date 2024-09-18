@@ -29,7 +29,7 @@ public class ApplyTexturePacks : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
         else
         {
@@ -131,7 +131,10 @@ public class ApplyTexturePacks : MonoBehaviour
         }
 
         float defaultMaxWidth = defaultTexturePackObject.GetComponent<RectTransform>().rect.width;
-        ProgressbarAnimator.instance.AnimateProgressbar(defaultTexturePackProgressbarRect, defaultMaxWidth);
+        if (Infrastructure.IsStartUpComplete)
+        {
+            ProgressbarAnimator.instance.AnimateProgressbar(defaultTexturePackProgressbarRect, defaultMaxWidth);
+        }
 
         PlayerPrefs.SetString("resourcepack", "default");
         PlayerPrefs.Save();

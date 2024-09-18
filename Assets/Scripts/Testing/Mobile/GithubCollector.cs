@@ -7,10 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 public class GithubCollector : MonoBehaviour
 {
+    [SerializeField]
+    private TMP_Text warningText;
+
     [Serializable]
     public class FileEntry
     {
@@ -38,9 +42,25 @@ public class GithubCollector : MonoBehaviour
 
     private async void Start()
     {
-        await CollectZipFilesFromGithub();
-        await CheckAndDownloadMissingTexturePacks();
-        await UnpackAndValidateTexturePacks();
+        if (Infrastructure.IsConnected())
+        {
+            await CollectZipFilesFromGithub();
+            if (Infrastructure.GetAvailableDiskSpace(Infrastructure.downloadPath) > 5e7)
+            {
+                await CheckAndDownloadMissingTexturePacks();
+                await UnpackAndValidateTexturePacks();
+            }
+            else
+            {
+                warningText.text = "Not enough disk space available. Please free up some space to use this feature.";
+                warningText.gameObject.SetActive(true);
+            }
+        }
+        else 
+        {
+            warningText.text = "No internet connection available. Please connect to the internet to use this feature.";
+            warningText.gameObject.SetActive(true);
+        }
         DisplayTexturePacks.instance.Display();
     }
 
@@ -70,6 +90,8 @@ public class GithubCollector : MonoBehaviour
             }
         }
 
+
+        
         foreach (DownloadEntry entry in missingEntries)
         {
             string zipFilePath = Path.Combine(Infrastructure.downloadPath, entry.name);
