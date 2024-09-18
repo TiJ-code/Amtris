@@ -22,8 +22,6 @@ public class LeaderboardMenuHandler : MonoBehaviour
         alphaChannel.interactable = true;
         alphaChannel.LeanAlpha(1f, 1.5f)
             .setEaseInOutQuad()
-            .setOnComplete(() => {
-                SceneManager.LoadScene(0);
-        });
+            .setOnComplete(() => SceneManager.LoadScene(0));
     }
 }
