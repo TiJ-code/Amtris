@@ -6062,7 +6062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2698940340195012366, guid: 13add5245271a7a4cb07f4fd774a3a49, type: 3}
       propertyPath: m_Name
-      value: BackToMainMenuButton
+      value: GameOverButton
       objectReference: {fileID: 0}
     - target: {fileID: 2985274913220174575, guid: 13add5245271a7a4cb07f4fd774a3a49, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6162,7 +6162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7791249412525824958, guid: 13add5245271a7a4cb07f4fd774a3a49, type: 3}
       propertyPath: m_text
-      value: '[ Back to Menu ]'
+      value: '[ End Game ]'
       objectReference: {fileID: 0}
     - target: {fileID: 7791249412525824958, guid: 13add5245271a7a4cb07f4fd774a3a49, type: 3}
       propertyPath: m_fontSize

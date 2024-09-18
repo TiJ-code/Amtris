@@ -57,9 +57,7 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMenu()
     {
-        alphaPanel.LeanAlpha(1f, 1f)
-            .setEaseInOutQuad()
-            .setOnComplete(() => SceneManager.LoadScene(0));
+        gameManager.GameOver();
     }
 
     public void PauseUnpauseButton()

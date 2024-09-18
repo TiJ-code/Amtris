@@ -269,7 +269,7 @@ public class GameManager : MonoBehaviour
         return GetComponent<Grid>().IsGameOver(currentAmtromino.transform);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         isGameOver = true;
         MenuHandler[] menuHandlers = FindObjectsOfType<MenuHandler>();
