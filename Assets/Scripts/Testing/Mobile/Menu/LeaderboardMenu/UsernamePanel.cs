@@ -31,6 +31,8 @@ public class UsernamePanel : MonoBehaviour
                 entryMenuAlpha.interactable = false;
                 entryMenuAlpha.blocksRaycasts = false;
             });
+
+        FindObjectOfType<LeaderboardManager>().AddScore(0);
     }
 
     private void Awake()

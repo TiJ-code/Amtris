@@ -219,7 +219,6 @@ RectTransform:
   - {fileID: 1518696595}
   - {fileID: 634991600}
   - {fileID: 1811981936}
-  - {fileID: 1139503807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -509,7 +508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100.00012}
+  m_AnchoredPosition: {x: 0, y: -100.000244}
   m_SizeDelta: {x: 0, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648378443
@@ -706,12 +705,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 648378442}
     m_Modifications:
     - target: {fileID: 50962028965360868, guid: 086422344ec2e2249ade74de50905b65, type: 3}
+      propertyPath: m_text
+      value: <Your_Name>
+      objectReference: {fileID: 0}
+    - target: {fileID: 50962028965360868, guid: 086422344ec2e2249ade74de50905b65, type: 3}
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 50962028965360868, guid: 086422344ec2e2249ade74de50905b65, type: 3}
       propertyPath: m_fontSizeBase
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 124611946032464936, guid: 086422344ec2e2249ade74de50905b65, type: 3}
+      propertyPath: m_text
+      value: <Your_Score>
       objectReference: {fileID: 0}
     - target: {fileID: 124611946032464936, guid: 086422344ec2e2249ade74de50905b65, type: 3}
       propertyPath: m_fontSize
@@ -1039,12 +1046,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139503806}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 51137715}
+  m_Father: {fileID: 1518696595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1907,6 +1914,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 648378442}
+  - {fileID: 1139503807}
   m_Father: {fileID: 51137715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
