@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +12,8 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     public TMP_Text scoreValue;
+    [SerializeField]
+    public PauseCounterAnimator pauseCounterAnimator;
 
     private void Start()
     {
@@ -35,8 +35,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
-        gameManager.isPaused = false;
         menuHandler.CloseMenu();
+    }
+
+    public void ChangeState(bool state)
+    {
+        gameManager.isPaused = state;
     }
 
     public void Restart()
@@ -62,7 +66,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (gameManager.isPaused)
         {
-            Continue();
+            pauseCounterAnimator.StartCountdown();
         }
         else
         {

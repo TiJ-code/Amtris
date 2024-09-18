@@ -278,7 +278,16 @@ public class GameManager : MonoBehaviour
             if (menuHandler.type == MenuHandler.MenuType.GameOver)
             {
                 menuHandler.OpenMenu();
-                GameOverMenu.instance.scoreValue.text = FindObjectOfType<Scoreboard>().score.ToString();
+
+                Scoreboard scoreboard = FindObjectOfType<Scoreboard>();
+                GameOverMenu.instance.scoreValue.text = scoreboard.score.ToString();
+                print("test");
+                if (scoreboard.score > 0)
+                {
+                    print("test2");
+                    LeaderboardManager.instance.AddScore(scoreboard.score);
+                }
+
                 break;
             }
         }

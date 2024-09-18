@@ -30,20 +30,10 @@ public class GameOverMenu : MonoBehaviour
             .setOnComplete(() => SceneManager.LoadScene(1));
     }
 
-    public void SubmitScore()
-    {
-
-    }
-
     public void BackToMenu()
     {
         alphaPanel.LeanAlpha(1f, 1f)
             .setEaseInOutQuad()
             .setOnComplete(() => SceneManager.LoadScene(0));
-    }
-
-    public void OpenLeaderboard()
-    {
-
     }
 }

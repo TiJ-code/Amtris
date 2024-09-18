@@ -9,9 +9,9 @@ using UnityEngine;
 
 public class Infrastructure : MonoBehaviour
 {
-    public static string applicationPath = Application.dataPath;
-    public static string downloadPath = applicationPath + "/.download/";
-    public static string usagePath = applicationPath + "/.texturepacks/";
+    public static string applicationPath;
+    public static string downloadPath;
+    public static string usagePath;
 
     public static ErrorNode errorNode = ErrorNode.NONE;
 
@@ -22,6 +22,11 @@ public class Infrastructure : MonoBehaviour
 
     private void Awake()
     {
+        applicationPath = Application.persistentDataPath;
+        downloadPath = applicationPath + "/.download/";
+        usagePath = applicationPath + "/.texturepacks/";
+
+
         if (!Directory.Exists(downloadPath))
         {
             Directory.CreateDirectory(downloadPath);

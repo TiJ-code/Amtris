@@ -36,7 +36,7 @@ public class GithubCollector : MonoBehaviour
     private List<DownloadEntry> downloadEntries = new List<DownloadEntry>();
     private List<DownloadEntry> missingEntries = new List<DownloadEntry>();
 
-    async void Start()
+    private async void Start()
     {
         await CollectZipFilesFromGithub();
         await CheckAndDownloadMissingTexturePacks();
