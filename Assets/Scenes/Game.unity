@@ -6022,6 +6022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: {fileID: 1686777119}
   pauseCounterAnimator: {fileID: 1627202245}
+  pauseButtonText: {fileID: 1382651107}
   alphaPanel: {fileID: 184380655}
 --- !u!1001 &2110941558
 PrefabInstance:

@@ -15,6 +15,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     public PauseCounterAnimator pauseCounterAnimator;
 
+    [SerializeField]
+    public TMP_Text pauseButtonText;
+
+    private string[] pauseLetters = { "J", "K" };
+
     private void Start()
     {
         if (instance != null && instance != this)
@@ -57,15 +62,11 @@ public class PauseMenu : MonoBehaviour
             .setOnComplete(() => SceneManager.LoadScene(0));
     }
 
-    public void OpenLeaderboard()
-    {
-
-    }
-
     public void PauseUnpauseButton()
     {
         if (gameManager.isPaused)
         {
+            pauseButtonText.text = pauseLetters[0];
             pauseCounterAnimator.StartCountdown();
         }
         else
@@ -73,6 +74,7 @@ public class PauseMenu : MonoBehaviour
             gameManager.isPaused = true;
             scoreValue.text = scoreboard.score.ToString();
             menuHandler.OpenMenu();
+            pauseButtonText.text = pauseLetters[1];
         }
     }
 }
