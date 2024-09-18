@@ -1,6 +1,6 @@
 # Terms of Service for Amtris
 
-Effective Date: 14.09.2024 [D/M/Y]
+Effective Date: 18.09.2024 [D/M/Y]
 
 Welcome to Amtris! These Terms of Service ("Terms") govern your access to and use of Amtris ("the Game") provided by *Amtris*, including any features, content, and services related to the Game. By downloading, playing, or accessing Amtris, you agree to be bound by these Terms. If you do not agree to these Terms, please discontinue using the Game.
 
@@ -33,11 +33,15 @@ By submitting your high score, you agree that:
 
 ## 4. Intellectual Property
 
-All content, features, and functionality in Amtris, including but not limited to game mechanics, design, artwork, and software code, are the exclusive property of Amtris or its licensors. You may not reproduce, distribute, or create derivative works based on any part of the Game without prior written consent.
+Amtris is inspired by the classic *Tetris* game but includes unique features, such as customizable texture packs that change the appearance of the blocks. While the basic mechanics of the game may resemble *Tetris*, the specific design elements, texture packs, and any original content related to *Amtris* are the exclusive property of Amtris or its licensors.
+
+You are granted a limited license to play the Game for personal use, but you may not:
+- Reproduce, distribute, or modify the texture packs or any original content without prior written consent.
+- Use any part of the Game’s design, artwork, or code for commercial purposes or in derivative works, unless explicitly allowed by Amtris.
 
 ## 5. Privacy
 
-By using Amtris, you agree to the collection and use of your information as outlined in our [Privacy Policy](#).
+By using Amtris, you agree to the collection and use of your information as outlined in our [Privacy Policy](https://github.com/TiJ-code/Amtris/blob/main/privacy_policy.md).
 
 ## 6. Disclaimers and Limitation of Liability
 
@@ -62,3 +66,5 @@ These Terms are governed by and construed in accordance with the laws of Germany
 ---
 
 Thank you for playing Amtris!
+
+`Original: 14.09.2024 \ Updated: 18.09.2024`
