@@ -45,16 +45,8 @@ public class GithubCollector : MonoBehaviour
         if (Infrastructure.IsConnected())
         {
             await CollectZipFilesFromGithub();
-            if (Infrastructure.GetAvailableDiskSpace(Infrastructure.downloadPath) > 5e7)
-            {
-                await CheckAndDownloadMissingTexturePacks();
-                await UnpackAndValidateTexturePacks();
-            }
-            else
-            {
-                warningText.text = "Not enough disk space available. Please free up some space to use this feature.";
-                warningText.gameObject.SetActive(true);
-            }
+            await CheckAndDownloadMissingTexturePacks();
+            await UnpackAndValidateTexturePacks();
         }
         else 
         {

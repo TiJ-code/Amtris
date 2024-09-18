@@ -37,12 +37,6 @@ public class Infrastructure : MonoBehaviour
     {
         return Application.internetReachability != NetworkReachability.NotReachable;
     }
-
-    public static long GetAvailableDiskSpace(string path)
-    {
-        var driveInfo = new DriveInfo(Path.GetPathRoot(path));
-        return driveInfo.AvailableFreeSpace;
-    }
 }
 
 public enum ErrorNode
