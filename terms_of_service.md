@@ -33,7 +33,11 @@ By submitting your high score, you agree that:
 
 ## 4. Intellectual Property
 
-All content, features, and functionality in Amtris, including but not limited to game mechanics, design, artwork, and software code, are the exclusive property of Amtris or its licensors. You may not reproduce, distribute, or create derivative works based on any part of the Game without prior written consent.
+Amtris is inspired by the classic *Tetris* game but includes unique features, such as customizable texture packs that change the appearance of the blocks. While the basic mechanics of the game may resemble *Tetris*, the specific design elements, texture packs, and any original content related to *Amtris* are the exclusive property of Amtris or its licensors.
+
+You are granted a limited license to play the Game for personal use, but you may not:
+- Reproduce, distribute, or modify the texture packs or any original content without prior written consent.
+- Use any part of the Game’s design, artwork, or code for commercial purposes or in derivative works, unless explicitly allowed by Amtris.
 
 ## 5. Privacy
 
